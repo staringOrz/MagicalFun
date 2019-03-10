@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MagicalFun</string>
+    
+    <string name="bottom_bar_music">音乐</string>
+    <string name="bottom_bar_news">资讯</string>
+    <string name="bottom_bar_find">美文</string>
+    <string name="menu_item_scan">扫描歌曲</string>
+    <string name="menu_item_love">我喜欢</string>
+</resources>
