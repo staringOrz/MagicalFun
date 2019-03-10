@@ -13,7 +13,7 @@ import cn.dengxijian.magicalfun.fragment.base.BaseFragment;
 
 /**
  * @author dengxijian
- * @time 2019/3/9
+ * @date 2019/3/9
  */
 public class MusicFragment extends BaseFragment {
 
@@ -22,7 +22,7 @@ public class MusicFragment extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mContext = getActivity();
-        mContextView = inflater.inflate(R.layout.activity_main, container, false);
+        mContextView = inflater.inflate(R.layout.activity_home, container, false);
         initView();
         return mContextView;
     }

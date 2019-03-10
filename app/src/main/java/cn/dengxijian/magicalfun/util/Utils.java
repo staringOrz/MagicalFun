@@ -8,11 +8,10 @@ import android.database.Cursor;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.huwei.sweetmusicplayer.SweetApplication;
 
 import java.util.List;
 
-import cn.dengxijian.magicalfun.application.FunApplication;
+import cn.dengxijian.magicalfun.application.MyApplication;
 
 /**
  * @author jerry
@@ -21,15 +20,15 @@ import cn.dengxijian.magicalfun.application.FunApplication;
 public class Utils {
     public static int getStatusBarHeight() {
         int result = 0;
-        int resourceId = FunApplication.getInstance().getResources().getIdentifier("status_bar_height", "dimen", "android");
+        int resourceId = MyApplication.getInstance().getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
-            result = FunApplication.getInstance().getResources().getDimensionPixelSize(resourceId);
+            result = MyApplication.getInstance().getResources().getDimensionPixelSize(resourceId);
         }
         return result;
     }
 
     public static Resources getResources() {
-        return FunApplication.getInstance().getResources();
+        return MyApplication.getInstance().getResources();
     }
 
     /**

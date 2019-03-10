@@ -1,107 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
->
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"/>
+        android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
-        android:orientation="horizontal"
-        android:paddingBottom="4dp"
-        android:paddingTop="4dp">
-
-        <RelativeLayout
-            android:id="@+id/rl_music_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-        >
-
-            <TextView
-                android:id="@+id/tv_image_music"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_image_music"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/bottom_bar_music"
-                android:textColor="@color/dark"
-                android:textSize="16sp"
-            />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_news_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-        >
-
-            <TextView
-                android:id="@+id/tv_image_news"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_image_news"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/bottom_bar_news"
-                android:textColor="@color/dark"
-                android:textSize="16sp"
-                />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_find_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-        >
-
-            <TextView
-                android:id="@+id/tv_image_find"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_image_find"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="4dp"
-                android:text="@string/bottom_bar_find"
-                android:textColor="@color/dark"
-                android:textSize="16sp"
-                />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_above="@+id/linearLayout"
-        android:background="@color/color_bottom_line"
-    />
+    <include layout="@layout/botton_bar"/>
 </RelativeLayout>

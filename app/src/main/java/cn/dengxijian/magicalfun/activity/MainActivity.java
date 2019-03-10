@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_layout);
-        changeStatusBarColor(R.color.music_status_color);
+        changeStatusBarColor(R.color.colorPrimary);
         initView();
 
         mMusicFragment = new MusicFragment();
