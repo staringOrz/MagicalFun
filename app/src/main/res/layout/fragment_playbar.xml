@@ -30,6 +30,7 @@
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
+                android:tint="@color/colorPrimary"
                 android:padding="3dp"
                 android:src="@drawable/album" />
 
@@ -79,6 +80,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:clickable="true"
+                    android:tint="@color/colorPrimary"
                     android:padding="6dp"
                     android:src="@drawable/selector_play_pause_bar" />
 
@@ -88,6 +90,7 @@
                     android:layout_height="40dp"
                     android:clickable="true"
                     android:padding="10dp"
+                    android:tint="@color/colorPrimary"
                     android:src="@drawable/selector_next_play_bar" />
 
                 <ImageView
@@ -96,6 +99,7 @@
                     android:layout_height="40dp"
                     android:clickable="true"
                     android:padding="10dp"
+                    android:tint="@color/colorPrimary"
                     android:src="@drawable/selector_menu" />
             </LinearLayout>
         </LinearLayout>

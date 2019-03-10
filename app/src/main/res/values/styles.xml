@@ -13,4 +13,5 @@
         <item name="android:windowExitAnimation">@anim/pop_exit</item>
     </style>
 
+    <style name="PlaylistActivityTheme" parent="AppTheme"/>
 </resources>

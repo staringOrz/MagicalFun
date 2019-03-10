@@ -214,7 +214,7 @@
         <FrameLayout
             android:id="@+id/fragment_playbar"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="100dp"
             android:layout_alignParentBottom="true" />
         <LinearLayout
             android:id="@+id/home_my_list_ll"
