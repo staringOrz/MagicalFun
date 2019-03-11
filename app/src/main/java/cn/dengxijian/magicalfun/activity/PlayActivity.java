@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
+import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateUtils;
@@ -28,6 +31,7 @@ import cn.dengxijian.magicalfun.fragment.PlayBarFragment;
 import cn.dengxijian.magicalfun.receiver.PlayerManagerReceiver;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;
+import cn.dengxijian.magicalfun.util.CustomAttrValueUtil;
 import cn.dengxijian.magicalfun.util.MyMusicUtil;
 import cn.dengxijian.magicalfun.view.PlayingPopWindow;
 
@@ -89,6 +93,7 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         nextIv.setOnClickListener(this);
         modeIv.setOnClickListener(this);
 
+        setSeekBarBg();
         initPlayMode();
         initTitle();
         initPlayIv();
@@ -255,6 +260,18 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
             intent.putExtra(Constant.KEY_PATH, path);
             Log.i(TAG, "onClick: path = " + path);
             sendBroadcast(intent);
+        }
+    }
+
+    private void setSeekBarBg(){
+        try {
+            int progressColor = CustomAttrValueUtil.getAttrColorValue(R.attr.colorPrimary,R.color.colorAccent,this);
+            LayerDrawable layerDrawable = (LayerDrawable) seekBar.getProgressDrawable();
+            ScaleDrawable scaleDrawable = (ScaleDrawable)layerDrawable.findDrawableByLayerId(android.R.id.progress);
+            GradientDrawable drawable = (GradientDrawable) scaleDrawable.getDrawable();
+            drawable.setColor(progressColor);
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

@@ -9,4 +9,14 @@
         <attr name="drawableHeight" format="dimension" />
         <attr name="isDrawableCenter" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="theme">
+        <attr name="appbg" format="reference"/>
+        <attr name="press_color" format="reference"/>
+        <attr name="play_bar_color" format="reference"/>
+        <attr name="accent_color" format="reference"/>
+        <attr name="divider" format="reference"/>
+        <attr name="image_tint" format="reference"/>
+        <attr name="my_selector_layout" format="reference"/>
+        <attr name="text_color" format="color"/>
+    </declare-styleable>
 </resources>

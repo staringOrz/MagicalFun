@@ -360,7 +360,7 @@ public class DBManager {
             case Constant.ACTIVITY_MYLOVE:
                 ContentValues values = new ContentValues();
                 values.put(DatabaseHelper.LOVE_COLUMN, 0);
-                db.update(DatabaseHelper.MUSIC_TABLE, null, ID_COLUMN + " = ? ", new String[]{"" + id});
+                db.update(DatabaseHelper.MUSIC_TABLE, values, ID_COLUMN + " = ? ", new String[]{"" + id});
                 break;
         }
     }
