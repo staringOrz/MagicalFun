@@ -23,6 +23,14 @@
     <color name="grey900">#ff282828</color>
     <color name="bg_album">#ECECEC</color>
 
+
+    <!-- 新闻模块 -->
+    <color name="newColorPrimary">#3F51B5</color><!--导航栏Toolbar的颜色-->
+    <color name="newColorPrimaryDark">#303F9F</color><!--顶部沉浸式菜单栏的颜色-->
+    <!-- news -->
+    <color name="colorPrimaryText">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="divider">#BDBDBD</color>
     <!--日间模式下 通用背景色-->
     <color name="common_bg">#FFFFFF</color>
     <!--日间模式下 触摸背景色-->

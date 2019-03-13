@@ -8,13 +8,41 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.orhanobut.logger.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.BaseActivity;
+import cn.dengxijian.magicalfun.database.news.CategoryDao;
+import cn.dengxijian.magicalfun.database.news.FunctionDao;
+import cn.dengxijian.magicalfun.entity.AllCategoryBean;
+import cn.dengxijian.magicalfun.entity.Function;
+import cn.dengxijian.magicalfun.entity.FunctionBean;
+import cn.dengxijian.magicalfun.entity.news.CategoryEntity;
+import cn.dengxijian.magicalfun.entity.news.CategoryManager;
 import cn.dengxijian.magicalfun.fragment.FindFragment;
 import cn.dengxijian.magicalfun.fragment.MusicFragment;
 import cn.dengxijian.magicalfun.fragment.NewsFragment;
+import cn.dengxijian.magicalfun.network.Network;
+import cn.dengxijian.magicalfun.util.StatusBarUtil;
+import cn.dengxijian.magicalfun.util.StreamUtils;
+import rx.Observer;
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+    private static final String NEWS_FRAGMENT = "NEWS_FRAGMENT";
+    private static final String WECHAT_FRAGMENT = "WECHAT_FRAGMENT";
+    private static final String FIND_FRAGMENT = "FIND_FRAGMENT";
+    public static final String ME_FRAGMENT = "ME_FRAGMENT";
+    public static final String FROM_FLAG = "FROM_FLAG";
+
+    private Subscription mSubscription;
 
     private FragmentManager mFragmentManager;
     private MusicFragment mMusicFragment;
@@ -42,11 +70,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content_layout,mMusicFragment);
         fragmentTransaction.commit();
-
+        requestCategory();
 
     }
 
-    private void initView() {
+    public void initView() {
         mMusicLayout = (RelativeLayout) findViewById(R.id.rl_music_view);
         mMusicLayout.setOnClickListener(this);
         mNewsLayout = (RelativeLayout) findViewById(R.id.rl_news_view);
@@ -69,6 +97,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.rl_music_view:
                 hideFragment(mFindFragment, fragmentTransaction);
                 hideFragment(mNewsFragment, fragmentTransaction);
+                changeStatusBarColor(R.color.colorPrimary);
                 if (mMusicFragment == null) {
                     mMusicFragment = new MusicFragment();
                     fragmentTransaction.add(R.id.content_layout, mMusicFragment);
@@ -91,9 +120,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.rl_news_view:
                 hideFragment(mMusicFragment, fragmentTransaction);
                 hideFragment(mFindFragment, fragmentTransaction);
+                changeStatusBarColor(R.color.newColorPrimary);
                 if (mNewsFragment == null) {
-                    mNewsFragment = new NewsFragment();
-                    fragmentTransaction.add(R.id.content_layout, mNewsFragment);
+                    mNewsFragment = NewsFragment.newInstance("a", "b");
+                    fragmentTransaction.add(R.id.content_layout, mNewsFragment, NEWS_FRAGMENT);
                 } else {
                     mCurrent = mNewsFragment;
                     fragmentTransaction.show(mNewsFragment);
@@ -102,6 +132,77 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         }
         fragmentTransaction.commit();
+    }
+
+//    private void saveFunctionToDB() {
+//        Function function = null;
+//        try {
+//            function = (new Gson()).fromJson(StreamUtils.get(getApplicationContext(), R.raw.function), Function.class);
+//        } catch (Exception e) {
+//            Logger.e("读取raw中的function.json文件异常：" + e.getMessage());
+//        }
+//        if (function != null && function.getFunction() != null && function.getFunction().size() != 0) {
+//            List<FunctionBean> functionBeanList = function.getFunction();
+//            FunctionDao functionDao = new FunctionDao(getApplicationContext());
+//            functionDao.insertFunctionBeanList(functionBeanList);
+//        }
+//
+//
+//    }
+
+    Observer<AllCategoryBean> mObserver = new Observer<AllCategoryBean>() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            Logger.e("onError:" + e.getMessage());
+            saveCategoryToDB(null);
+        }
+
+        private void saveCategoryToDB(List<CategoryEntity> categoryEntityList) {
+            CategoryDao categoryDao = new CategoryDao(getApplicationContext());
+            categoryDao.deleteAllCategory();
+            categoryDao.insertCategoryList(categoryEntityList == null ?
+                    (new CategoryManager(getApplicationContext()).getAllCategory())
+                    : categoryEntityList);
+        }
+
+        @Override
+        public void onNext(AllCategoryBean wechatItem) {
+            if (wechatItem != null && "200".equals(wechatItem.getRetCode())) {
+                List<CategoryEntity> categoryEntityList = new ArrayList<>();
+                List<AllCategoryBean.ResultBean> result = wechatItem.getResult();
+                for (int i = 0; i < result.size(); i++) {
+                    AllCategoryBean.ResultBean resultBean = result.get(i);
+                    CategoryEntity categoryEntity = new CategoryEntity(null, resultBean.getName(), resultBean.getCid(), i);
+                    categoryEntityList.add(categoryEntity);
+                }
+                saveCategoryToDB(categoryEntityList);
+            } else {
+                saveCategoryToDB(null);
+            }
+        }
+    };
+
+    /**
+     * 第一次打开App时，将news的所有类别保存到本地数据库
+     */
+    private void requestCategory() {
+        unsubscribe();
+        mSubscription = Network.getAllCategoryApi()
+                .getAllCategory()//key,页码,每页条数
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mObserver);
+    }
+
+    private void unsubscribe() {
+        if (mSubscription != null && !mSubscription.isUnsubscribed()) {
+            mSubscription.unsubscribe();
+        }
     }
 
     private void hideFragment(Fragment fragment, FragmentTransaction ft) {

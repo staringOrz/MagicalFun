@@ -16,9 +16,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.dengxijian.magicalfun.R;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.MusicInfo;
-import cn.dengxijian.magicalfun.entity.PlayListInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.MusicInfo;
+import cn.dengxijian.magicalfun.entity.music.PlayListInfo;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;
 import cn.dengxijian.magicalfun.util.MyMusicUtil;

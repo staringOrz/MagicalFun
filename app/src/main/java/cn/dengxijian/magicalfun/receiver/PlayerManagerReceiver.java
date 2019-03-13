@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.io.File;
 
-import cn.dengxijian.magicalfun.database.DBManager;
+import cn.dengxijian.magicalfun.database.news.DBManager;
 import cn.dengxijian.magicalfun.fragment.PlayBarFragment;
 import cn.dengxijian.magicalfun.util.Constant;
 import cn.dengxijian.magicalfun.util.MyMusicUtil;

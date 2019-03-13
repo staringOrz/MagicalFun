@@ -34,8 +34,8 @@ import java.util.List;
 
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.adapter.RecyclerViewAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.MusicInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.MusicInfo;
 import cn.dengxijian.magicalfun.receiver.PlayerManagerReceiver;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;

@@ -18,13 +18,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.application.MyApplication;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.AlbumInfo;
-import cn.dengxijian.magicalfun.entity.FolderInfo;
-import cn.dengxijian.magicalfun.entity.MusicInfo;
-import cn.dengxijian.magicalfun.entity.SingerInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.AlbumInfo;
+import cn.dengxijian.magicalfun.entity.music.FolderInfo;
+import cn.dengxijian.magicalfun.entity.music.MusicInfo;
+import cn.dengxijian.magicalfun.entity.music.SingerInfo;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 
 /**

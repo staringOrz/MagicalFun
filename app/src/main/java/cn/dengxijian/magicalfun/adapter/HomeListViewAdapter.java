@@ -3,7 +3,6 @@ package cn.dengxijian.magicalfun.adapter;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,8 +23,8 @@ import java.util.List;
 
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.PlaylistActivity;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.PlayListInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.PlayListInfo;
 
 /**
  * Created by dengxijian on 2019/2/26.

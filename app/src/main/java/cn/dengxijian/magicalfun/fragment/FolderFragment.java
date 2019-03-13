@@ -18,8 +18,8 @@ import java.util.List;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.ModelActivity;
 import cn.dengxijian.magicalfun.adapter.FolderAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.FolderInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.FolderInfo;
 import cn.dengxijian.magicalfun.util.MyMusicUtil;
 
 /**

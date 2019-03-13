@@ -27,9 +27,10 @@ import java.util.List;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.LastMyloveActivity;
 import cn.dengxijian.magicalfun.activity.LocalMusicActivity;
+import cn.dengxijian.magicalfun.activity.base.BaseActivity;
 import cn.dengxijian.magicalfun.adapter.HomeListViewAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.PlayListInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.PlayListInfo;
 import cn.dengxijian.magicalfun.fragment.base.BaseFragment;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;
@@ -70,12 +71,13 @@ public class MusicFragment extends BaseFragment {
 
     private HomeListViewAdapter adapter;
     private List<PlayListInfo> playListInfos;
+    private BaseActivity mContext;
     private int count;
     private boolean isOpenMyPL = false; //标识我的歌单列表打开状态
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mContext = getActivity();
+        mContext = getBaseActivity();
         dbManager = DBManager.getInstance(mContext);
         mContextView = inflater.inflate(R.layout.activity_home, container, false);
         mFragmentManager = getChildFragmentManager();
@@ -87,6 +89,16 @@ public class MusicFragment extends BaseFragment {
             fragmentTransaction.show(mPlayBarFragment).commit();
         }
         return mContextView;
+    }
+
+    @Override
+    public int getLayoutRes() {
+        return 0;
+    }
+
+    @Override
+    protected void managerArguments() {
+
     }
 
     @Override
@@ -198,7 +210,7 @@ public class MusicFragment extends BaseFragment {
         initView();
     }
 
-    private void initView() {
+    public void initView() {
         toolbar = getActivity().findViewById(R.id.home_activity_toolbar);
         localMusicLl = (LinearLayout) getActivity().findViewById(R.id.home_local_music_ll);
         lastPlayLl = (LinearLayout) getActivity().findViewById(R.id.home_recently_music_ll);

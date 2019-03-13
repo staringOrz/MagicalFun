@@ -26,7 +26,7 @@ import java.util.Locale;
 
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.BaseActivity;
-import cn.dengxijian.magicalfun.database.DBManager;
+import cn.dengxijian.magicalfun.database.news.DBManager;
 import cn.dengxijian.magicalfun.fragment.PlayBarFragment;
 import cn.dengxijian.magicalfun.receiver.PlayerManagerReceiver;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
@@ -74,7 +74,12 @@ public class PlayActivity extends BaseActivity implements View.OnClickListener {
         register();
     }
 
-    private void initView() {
+    @Override
+    public void initContentView() {
+
+    }
+
+    public void initView() {
         backIv = (ImageView) findViewById(R.id.iv_back);
         playIv = (ImageView) findViewById(R.id.iv_play);
         menuIv = (ImageView) findViewById(R.id.iv_menu);

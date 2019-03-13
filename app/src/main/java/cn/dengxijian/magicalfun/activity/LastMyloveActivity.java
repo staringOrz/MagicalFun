@@ -36,8 +36,8 @@ import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.PlayBarBaseActivity;
 import cn.dengxijian.magicalfun.adapter.DividerItemDecoration;
 import cn.dengxijian.magicalfun.adapter.RecyclerViewAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.MusicInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.MusicInfo;
 import cn.dengxijian.magicalfun.receiver.PlayerManagerReceiver;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;
@@ -81,6 +81,11 @@ public class LastMyloveActivity extends PlayBarBaseActivity {
         }
         init();
         register();
+    }
+
+    @Override
+    public void initContentView() {
+
     }
 
     private void init(){

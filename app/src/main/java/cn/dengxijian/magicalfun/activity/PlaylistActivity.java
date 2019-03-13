@@ -28,9 +28,9 @@ import java.util.List;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.PlayBarBaseActivity;
 import cn.dengxijian.magicalfun.adapter.PlaylistAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.MusicInfo;
-import cn.dengxijian.magicalfun.entity.PlayListInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.MusicInfo;
+import cn.dengxijian.magicalfun.entity.music.PlayListInfo;
 import cn.dengxijian.magicalfun.receiver.PlayerManagerReceiver;
 import cn.dengxijian.magicalfun.service.MusicPlayerService;
 import cn.dengxijian.magicalfun.util.Constant;
@@ -72,11 +72,16 @@ public class PlaylistActivity extends PlayBarBaseActivity {
     }
 
     @Override
+    public void initContentView() {
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
     }
 
-    private void initView(){
+    public void initView(){
         recyclerView = (RecyclerView)findViewById(R.id.activity_playlist_rv);
         playlistAdapter = new PlaylistAdapter(this,playListInfo,musicInfoList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

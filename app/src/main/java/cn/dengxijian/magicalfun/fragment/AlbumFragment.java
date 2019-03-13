@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.ModelActivity;
 import cn.dengxijian.magicalfun.adapter.AlbumAdapter;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.AlbumInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.AlbumInfo;
 import cn.dengxijian.magicalfun.util.MyMusicUtil;
 
 /**

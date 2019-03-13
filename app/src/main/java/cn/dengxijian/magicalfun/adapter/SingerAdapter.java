@@ -14,8 +14,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.dengxijian.magicalfun.R;
-import cn.dengxijian.magicalfun.database.DBManager;
-import cn.dengxijian.magicalfun.entity.SingerInfo;
+import cn.dengxijian.magicalfun.database.news.DBManager;
+import cn.dengxijian.magicalfun.entity.music.SingerInfo;
 
 /**
  * Created by dengxijian on 2019/3/11.

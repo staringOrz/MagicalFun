@@ -7,9 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
+import butterknife.ButterKnife;
 import cn.dengxijian.magicalfun.util.StatusBarUtil;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     protected Context mContext;
 
@@ -22,8 +23,21 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // 初始化View注入
+        initContentView();
+        ButterKnife.bind(this);
+        initPresenter();
         mContext = this;
     }
+
+    /**
+     * 初始化控制中心
+     */
+    public  void initPresenter(){};
+    /**
+     * 初始化布局
+     */
+    public  void initContentView(){};
 
     @Override
     protected void onStart() {

@@ -9,4 +9,14 @@
     <string name="local_music">本地音乐</string>
     <string name="last_play">最近播放</string>
     <string name="scan_music">扫描音乐</string>
+
+    <string name="empty_network_error">网络错误，点击重试！</string>
+    <string name="empty_no_data">没有请求到数据，点击重试...</string>
+
+    <string name="select_browser">请选择浏览器</string>
+    <string name="no_browser_choose">没有在本机找到可供使用的浏览器！</string>
+    <string name="copysuccess">复制成功</string>
+    <string name="copyfail">复制地址出错</string>
+    <string name="last_page">已经是最后一页了。</string>
+
 </resources>

@@ -16,16 +16,26 @@ import cn.dengxijian.magicalfun.fragment.base.BaseFragment;
  */
 public class FindFragment extends BaseFragment {
     private View mContextView;
+
+    @Override
+    protected void managerArguments() {
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mContext = getActivity();
+        mActivity = getBaseActivity();
         mContextView = inflater.inflate(R.layout.activity_main, container, false);
-        initView();
         return mContextView;
     }
 
-    private void initView() {
+    @Override
+    public int getLayoutRes() {
+        return 0;
+    }
+
+    public void initView() {
 
     }
 }
