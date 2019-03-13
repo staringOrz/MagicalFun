@@ -69,6 +69,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
+            android:name="cn.dengxijian.magicalfun.fragment.wechat.WeChatDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".activity.LocalMusicActivity"
             android:label="@string/local_music"
             android:launchMode="singleTask"

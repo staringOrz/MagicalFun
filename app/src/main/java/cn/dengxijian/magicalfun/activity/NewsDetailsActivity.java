@@ -49,6 +49,7 @@ public class NewsDetailsActivity extends BaseActivity {
 
     public void initContentView() {
         setContentView(R.layout.activity_news_details);
+        changeStatusBarColor(R.color.newColorPrimary);
     }
 
     @Override

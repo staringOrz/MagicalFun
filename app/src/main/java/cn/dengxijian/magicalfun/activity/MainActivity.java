@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -17,18 +16,14 @@ import java.util.List;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.BaseActivity;
 import cn.dengxijian.magicalfun.database.news.CategoryDao;
-import cn.dengxijian.magicalfun.database.news.FunctionDao;
 import cn.dengxijian.magicalfun.entity.AllCategoryBean;
-import cn.dengxijian.magicalfun.entity.Function;
-import cn.dengxijian.magicalfun.entity.FunctionBean;
 import cn.dengxijian.magicalfun.entity.news.CategoryEntity;
 import cn.dengxijian.magicalfun.entity.news.CategoryManager;
 import cn.dengxijian.magicalfun.fragment.FindFragment;
 import cn.dengxijian.magicalfun.fragment.MusicFragment;
 import cn.dengxijian.magicalfun.fragment.NewsFragment;
+import cn.dengxijian.magicalfun.fragment.wechat.WechatFragment;
 import cn.dengxijian.magicalfun.network.Network;
-import cn.dengxijian.magicalfun.util.StatusBarUtil;
-import cn.dengxijian.magicalfun.util.StreamUtils;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -46,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private FragmentManager mFragmentManager;
     private MusicFragment mMusicFragment;
-    private FindFragment mFindFragment;
+    private WechatFragment mWechatFragment;
     private NewsFragment mNewsFragment;
     private Fragment mCurrent;
 
@@ -95,7 +90,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         switch (v.getId()){
             case R.id.rl_music_view:
-                hideFragment(mFindFragment, fragmentTransaction);
+                hideFragment(mWechatFragment, fragmentTransaction);
                 hideFragment(mNewsFragment, fragmentTransaction);
                 changeStatusBarColor(R.color.colorPrimary);
                 if (mMusicFragment == null) {
@@ -109,17 +104,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.rl_find_view:
                 hideFragment(mMusicFragment, fragmentTransaction);
                 hideFragment(mNewsFragment, fragmentTransaction);
-                if (mFindFragment == null) {
-                    mFindFragment = new FindFragment();
-                    fragmentTransaction.add(R.id.content_layout, mFindFragment);
+                if (mWechatFragment == null) {
+                    mWechatFragment = new WechatFragment();
+                    fragmentTransaction.add(R.id.content_layout, mWechatFragment);
                 } else {
-                    mCurrent = mFindFragment;
-                    fragmentTransaction.show(mFindFragment);
+                    mCurrent = mWechatFragment;
+                    fragmentTransaction.show(mWechatFragment);
                 }
                 break;
             case R.id.rl_news_view:
                 hideFragment(mMusicFragment, fragmentTransaction);
-                hideFragment(mFindFragment, fragmentTransaction);
+                hideFragment(mWechatFragment, fragmentTransaction);
                 changeStatusBarColor(R.color.newColorPrimary);
                 if (mNewsFragment == null) {
                     mNewsFragment = NewsFragment.newInstance("a", "b");
