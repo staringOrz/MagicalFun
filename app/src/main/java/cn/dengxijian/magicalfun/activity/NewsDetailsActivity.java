@@ -20,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
 
+import com.mob.MobSDK;
+
 import butterknife.BindView;
 import cn.dengxijian.magicalfun.R;
 import cn.dengxijian.magicalfun.activity.base.BaseActivity;
@@ -57,7 +59,7 @@ public class NewsDetailsActivity extends BaseActivity {
 
     //控件的相关事件绑定
     public void initView() {
-        ShareSDK.initSDK(this);
+        MobSDK.init(this,"2a70a18c94f3a","37c57ab392c6e3a1ae2077c882547dec");
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             mUrl = extras.getString("url");

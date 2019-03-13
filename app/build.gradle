@@ -38,18 +38,21 @@ dependencies {
     implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.2.5'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile files('libs/ShareSDK-Core-2.8.2.jar')
-    compile files('libs/MobCommons-2017.0322.0931.jar')
-    compile files('libs/MobTools-2017.0322.0931.jar')
-    compile files('libs/ShareSDK-Evernote-2.8.2.jar')
-    compile files('libs/ShareSDK-QQ-2.8.2.jar')
-    compile files('libs/ShareSDK-ShortMessage-2.8.2.jar')
-    compile files('libs/ShareSDK-SinaWeibo-2.8.2.jar')
-    compile files('libs/ShareSDK-Wechat-2.8.2.jar')
-    compile files('libs/ShareSDK-Wechat-Core-2.8.2.jar')
-    compile files('libs/ShareSDK-Wechat-Favorite-2.8.2.jar')
-    compile files('libs/ShareSDK-Wechat-Moments-2.8.2.jar')
-    compile files('libs/ShareSDK-YouDao-2.8.2.jar')
+    compile files('libs/MobCommons-2019.0225.1518.jar')
+    compile files('libs/MobTools-2019.0221.2219.jar')
+    compile files('libs/SDKWrapper-2018.0801.1824.jar')
+    compile files('libs/ShareSDK-Core-3.5.0.jar')
+    compile files('libs/ShareSDK-Evernote-3.5.0.jar')
+    compile files('libs/ShareSDK-QQ-3.5.0.jar')
+    compile files('libs/ShareSDK-QZone-3.5.0.jar')
+    compile files('libs/ShareSDK-ShortMessage-3.5.0.jar')
+    compile files('libs/ShareSDK-SinaWeibo-3.5.0.jar')
+    compile files('libs/ShareSDK-TencentWeibo-3.5.0.jar')
+    compile files('libs/ShareSDK-Wechat-3.5.0.jar')
+    compile files('libs/ShareSDK-Wechat-Core-3.5.0.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-3.5.0.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-3.5.0.jar')
+    compile files('libs/ShareSDK-YouDao-3.5.0.jar')
     compile 'com.orhanobut:logger:1.15'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
