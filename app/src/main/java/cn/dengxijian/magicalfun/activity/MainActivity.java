@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -52,6 +53,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView mNewsView;
     private TextView mFindView;
 
+    private TextView mMusicText;
+    private TextView mNewsText;
+    private TextView mFindText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +64,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setContentView(R.layout.activity_home_layout);
         changeStatusBarColor(R.color.colorPrimary);
         initView();
-
+        mMusicView.setBackgroundResource(R.drawable.img_music_click);
+        mMusicText.setTextColor(getResources().getColor(R.color.colorPrimary));
         mMusicFragment = new MusicFragment();
         mFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
@@ -81,6 +87,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mNewsView = (TextView) findViewById(R.id.tv_image_news);
         mFindView = (TextView) findViewById(R.id.tv_image_find);
 
+        mMusicText = (TextView) findViewById(R.id.tv_text_music);
+        mNewsText = (TextView) findViewById(R.id.tv_text_news);
+        mFindText = (TextView) findViewById(R.id.tv_text_find);
+
         //音乐图标被选中
         //mMusicView.setBackgroundResource(R.drawable.comui_tab_home_selected);
     }
@@ -90,6 +100,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
         switch (v.getId()){
             case R.id.rl_music_view:
+                mMusicView.setBackgroundResource(R.drawable.img_music_click);
+                mNewsView.setBackgroundResource(R.drawable.news);
+                mFindView.setBackgroundResource(R.drawable.image);
+
+                mMusicText.setTextColor(getResources().getColor(R.color.colorPrimary));
+                mFindText.setTextColor(getResources().getColor(R.color.colorBlack));
+                mNewsText.setTextColor(getResources().getColor(R.color.colorBlack));
                 hideFragment(mWechatFragment, fragmentTransaction);
                 hideFragment(mNewsFragment, fragmentTransaction);
                 changeStatusBarColor(R.color.colorPrimary);
@@ -102,6 +119,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.rl_find_view:
+                mMusicView.setBackgroundResource(R.drawable.img_music);
+                mNewsView.setBackgroundResource(R.drawable.news);
+                mFindView.setBackgroundResource(R.drawable.image_selected);
+
+                mMusicText.setTextColor(getResources().getColor(R.color.colorBlack));
+                mFindText.setTextColor(getResources().getColor(R.color.colorPrimary));
+                mNewsText.setTextColor(getResources().getColor(R.color.colorBlack));
                 hideFragment(mMusicFragment, fragmentTransaction);
                 hideFragment(mNewsFragment, fragmentTransaction);
                 if (mWechatFragment == null) {
@@ -113,6 +137,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.rl_news_view:
+                mMusicView.setBackgroundResource(R.drawable.img_music);
+                mNewsView.setBackgroundResource(R.drawable.news_select);
+                mFindView.setBackgroundResource(R.drawable.image);
+
+                mMusicText.setTextColor(getResources().getColor(R.color.colorBlack));
+                mFindText.setTextColor(getResources().getColor(R.color.colorBlack));
+                mNewsText.setTextColor(getResources().getColor(R.color.colorPrimary));
                 hideFragment(mMusicFragment, fragmentTransaction);
                 hideFragment(mWechatFragment, fragmentTransaction);
                 changeStatusBarColor(R.color.newColorPrimary);

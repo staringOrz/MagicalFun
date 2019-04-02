@@ -26,16 +26,18 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
+                android:enabled="true"
+                android:background="@drawable/tab_img_music" />
 
             <TextView
+                android:id="@+id/tv_text_music"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_image_music"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="4dp"
                 android:text="@string/bottom_bar_music"
-                android:textColor="@color/colorBlack"
+                android:textColor="@drawable/tab_text_color"
                 android:textSize="14sp"
                 />
         </RelativeLayout>
@@ -52,16 +54,17 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
+                android:background="@drawable/tab_img_news" />
 
             <TextView
+                android:id="@+id/tv_text_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_image_news"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="4dp"
                 android:text="@string/bottom_bar_news"
-                android:textColor="@color/colorBlack"
+                android:textColor="@drawable/tab_text_color"
                 android:textSize="14sp"
                 />
         </RelativeLayout>
@@ -78,25 +81,19 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/music" />
+                android:background="@drawable/tab_img_image" />
 
             <TextView
+                android:id="@+id/tv_text_find"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_image_find"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="4dp"
                 android:text="@string/bottom_bar_find"
-                android:textColor="@color/colorBlack"
+                android:textColor="@drawable/tab_text_color"
                 android:textSize="14sp"
                 />
         </RelativeLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_above="@+id/linearLayout"
-        android:background="@color/color_bottom_line"
-        />
 </RelativeLayout>
